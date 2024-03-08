@@ -1,0 +1,34 @@
+<view class="half-screen">
+  <!--屏幕背景变暗的背景  -->
+  <view class="background_screen" bindtap="hideModal" wx:if="{{showModalStatus}}"></view>
+  <!--弹出框  -->
+  <view animation="{{animationData}}" class="attr_box" wx:if="{{showModalStatus}}">
+    
+    <view style="margin-left:15px;"><text>乡村振兴农贸小程序 申请\n\n</text></view>
+    <view style="margin-left:15px;font-weight: bold;">请求刷新您的位置信息</view>
+    <!--<image class="back" src="../../assets/back.png" bindtap="hideModal"></image>-->
+    
+
+
+    <!--
+    <view class="thresholdBtn">
+      <button id="asdfasdf" class="confirm" size="mini" type="primary" bindtap="hideModal" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">确定</button>
+    </view>
+  -->
+    <text>\n</text>
+    <view style="display:flex;flex-direction:row;justify-content: center;">
+      <view>
+        <button class="confirm" size="mini" style="margin-right:15px;" bindtap="onCancleAvatar">
+          <text>取消</text>
+        </button>
+      </view>
+      <view class="thresholdBtn">
+        <button class="confirm" size="mini" style="margin-left:15px;" type="primary" open-type="getPhoneNumber" bind:getphonenumber="onChooseAvatar">
+          <text>确定</text>
+        </button>
+      </view>
+    </view>
+    
+
+  </view>
+</view>

@@ -1,0 +1,9 @@
+/**app.wxss**/
+page{
+  --zhutise:#175167;
+  --zhutihui:#B0B2BF;
+  --qianhui:#F3F4F9;
+  background-color: #EDEDED;
+}
+
+

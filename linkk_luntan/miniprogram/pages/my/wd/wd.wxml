@@ -1,0 +1,68 @@
+<view class="user">
+ 
+  <view class="quan" style="margin:20rpx;background-color:#ffffff;box-shadow:0px 2px 4px 2px #DDDDDD;border-width: 0rpx;border-radius:15rpx;overflow:hidden;" >
+    <view style="display:flex;align-items:center;margin-left:15rpx;margin-top: 15rpx;">
+      <image bindtap="chakantouxiang" src="{{ userphoto }}" style="border-radius:50%;overflow:hidden;margin:20rpx;width:120rpx;height:auto;border-style: solid;box-shadow:0px 2px 4px 2px #DDDDDD;border-width: 0rpx;" mode="widthFix" />
+    
+      <view class="you1" style="display:flex; flex-direction:column" >
+        <text class="name" style="font-size: 120%;color:#57A7FE;margin-left:15rpx;border-radius:10rpx;overflow:hidden;padding:6rpx" >{{username}}</text>
+
+        <button class="denglu" wx:if="{{login==false }}" bindtap="getather" style="margin-bottom: 25rpx;" >
+            授权头像昵称
+        </button>
+
+        <button class="denglu" wx:if="{{login==false}}" open-type="getPhoneNumber" bindgetphonenumber="GetUserInfo" style="margin-bottom: 25rpx;" >
+            授权手机
+        </button>
+      </view>
+    </view>
+    
+
+  </view>
+  <view wx:if="{{login==true}}" class="wd-list"  >
+    <navigator url="../../plate3/plate3?canshu=fabude" >
+      <view class="wdlist">
+        <view class="zuo">
+          <image src="../../../images/icon/wz.png" mode="widthFix" style="width:45rpx;height:auto;margin-right: 20rpx;" ></image>
+          <view class="wdlist-nr">我的动态</view>
+        </view>
+        <image class="you" src="../../../images/icon/you.png" mode="widthFix" style="width:45rpx;margin-right:25rpx;height:auto;" ></image>
+      </view>
+    </navigator>
+  </view>
+  <view wx:if="{{login==true}}" class="wd-list"  >
+    <navigator url="../../plate3/plate3?canshu=pinglunde" >
+      <view class="wdlist">
+        <view class="zuo">
+          <image src="../../../images/icon/pl.png" mode="widthFix" style="width:45rpx;height:auto;margin-right: 20rpx;" ></image>
+          <view class="wdlist-nr">我的评论</view>
+        </view>
+        <image class="you" src="../../../images/icon/you.png" mode="widthFix" style="width:45rpx;margin-right:25rpx;height:auto" ></image>
+      </view>
+    </navigator>
+  </view>
+  <view wx:if="{{login==true}}" class="wd-list"  >
+    <navigator url="../../message/xiaoxi/xiaoxi" >
+      <view class="wdlist">
+        <view class="zuo">
+          <image src="../../../images/icon/xx.png" mode="widthFix" style="width:45rpx;height:auto;margin-right: 20rpx;" ></image>
+          <view class="wdlist-nr">我的消息</view>
+        </view>
+        <image class="you" src="../../../images/icon/you.png" mode="widthFix" style="width:45rpx;margin-right:25rpx;height:auto" ></image>
+      </view>
+    </navigator>
+  </view>
+  <view wx:if="{{isgl==true}}" class="wd-list"  >
+    <navigator url="../../admin/admin" >
+      <view class="wdlist">
+        <view class="wdlist-nr" style="margin-left:20rpx" >管理员入口</view>
+        <image class="you" src="../../../images/icon/you.png" mode="widthFix" style="width:45rpx;margin-right:25rpx;height:auto" ></image>
+      </view>
+    </navigator>
+  </view>
+  
+  <view class="wd-list" hidden="{{!adload}}" >
+    <ad unit-id="adunit-2b938ac18b8d9074" binderror="adError"></ad>
+  </view>
+
+</view>

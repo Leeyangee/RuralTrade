@@ -1,0 +1,17 @@
+/* miniprogram/pages/my/about/about.wxss */
+page{background-color:#E8989A;}
+.yitiao{
+    display:flex;justify-content:space-between;margin:30rpx
+}
+.zuo{
+    display:flex;flex-direction:column
+}
+.you{
+    display:flex;align-items:center
+}
+.neirong{
+    font-size:80%;color:rgb(232, 248, 245)
+}
+.youbian{
+    width:50rpx;height:50rpx
+}

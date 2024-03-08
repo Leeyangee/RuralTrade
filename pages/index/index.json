@@ -1,0 +1,7 @@
+{
+  "enablePullDownRefresh": true,
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "popup": "/components/popup/popup"
+  }
+}

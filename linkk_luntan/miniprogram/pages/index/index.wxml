@@ -1,0 +1,174 @@
+<wxs module="tools" src="../../utils/filter.wxs"/>
+
+<movable-area style="height:{{movehight}}px;width:720rpx;position:fixed;top:15rpx;left:15rpx;pointer-events: none;  "  >
+  
+  <movable-view class="moveview" style="height: 90rpx;width: 90rpx;"  direction="all" x="500" y="{{movehight2-80}}"  >
+    <image src="../../images/icon/wz.png"  bindtap="my" class="goTop" mode="widthFix"  ></image>
+    <image src="../../images/tabBar/tools0.png"  bindtap="add" class="goTop" mode="widthFix"  ></image>
+    <image src="../../images/goTop.png"  hidden='{{yincang}}'  bindtap="goTop" class="goTop" mode="widthFix"  ></image>
+  </movable-view>
+  
+</movable-area>
+
+
+<!-- <image src="/images/goTop.png" hidden='{{yincang}}' bindtap="goTop" class="goTop" mode="widthFix"  ></image> -->
+
+<!-- <image src="/images/shuaxin.png"  bindtap="shuaxin" class="shuaxin" mode="widthFix"  ></image> -->
+
+<!-- 主页 -->
+<view class="zhuye" >
+<!-- 搜索框 --> 
+<view class="bg" style="background-color:#ffffff;width:100%;height:100%;" >
+  <view class="search" style="padding:5rpx 0" >
+    <view class="search" style="display:flex;border-radius: 45rpx;overflow: hidden;background-color:#F3F4F9;margin:0 5rpx;width:740rpx">
+      <input type="text" placeholder="🔍搜索一下吧..." placeholder-style="color:#B0B2BF;" confirm-type="search" value="{{search}}"
+      style="width:100%;margin:10rpx 25rpx;font-size:85%" maxlength="20" bindconfirm="search" ></input>
+    </view>
+  </view>
+</view>
+<!-- 未读的公告！ -->
+<!-- <view class="gonggao" style="display:flex;justify-content:space-between;background-color:#9BE1D1;align-items:center;padding:5rpx;margin:5rpx 10rpx;border-radius:15rpx;overflow:hidden" >
+  <view class="title">您有未读公告“{{gonggao.title}}”未读，点击查看</view>
+  <image class="cut" src="/images/icon/cha.png" style="width:30rpx;height:auto" mode="widthFix" ></image>
+</view> -->
+<!-- 广告轮播图 -->
+<view class="guanggao" style="height:270rpx;background-color: #ffffff;" >
+    <swiper current="0" class="guanggao1"  autoplay="true" interval="2500" circular="true"  previous-margin="30rpx" next-margin="30rpx" >
+      <swiper-item wx:for="{{lunbotu}}"  wx:key="index" wx:for-index="indexlbt" >
+        <navigator url="../plate2/plate2?id={{item.id}}&fenxiang=false&liuyan=true&love="   >
+          <image hidden="{{!item.loaded}}" src="{{item.image}}"  mode="aspectFill" style="width:680rpx;height:250rpx;border-radius:20rpx;overflow:hidden;border:thin solid #4B7382;" bindload="imageOnLoad" id="{{indexlbt}}"  binderror="imageOnLoadError"></image>
+          <!-- 下面测试 -->
+          <image src="{{'../../images/loading8.gif'}}" wx:if="{{!item.loaded}}"  mode="aspectFill" style="width:680rpx;height:270rpx;border-radius:20rpx;overflow:hidden;border:thin solid #4B7382;"></image>
+          <!-- 上面测试 -->
+
+        </navigator>
+      </swiper-item>
+    </swiper>
+  </view>
+<!-- 板块四个 -->
+<view class="bankuai">
+    <view bindtap="tiaozhuan" data-bankuai="0" class="bankuainr">
+      <image class="bankuaiimg" src="../images/供应商 .png" style="width:65rpx;height:65rpx;background-color:#FF5C5D;" ></image>
+      <text class="bankuaiwenben" >供应商</text>
+    </view>
+    <view bindtap="tiaozhuan" data-bankuai="1" class="bankuainr">
+      <image class="bankuaiimg" src="../images/收购商.png" style="width:65rpx;height:65rpx;background-color:#F59952;" ></image>
+      <text class="bankuaiwenben" >收购商</text>
+    </view>
+
+    <view bindtap="tiaozhuan" data-bankuai="2" class="bankuainr">
+      <image class="bankuaiimg" src="../images/聊天室.png" style="width:68rpx;height:68rpx;background-color:#FEA51D;" ></image>
+      <text class="bankuaiwenben" >聊天室</text>
+    </view>
+    <view bindtap="tiaozhuan" data-bankuai="3" class="bankuainr">
+      <image class="bankuaiimg" src="../../images/bankuai/huxiangbangzhu.png" style="width:80rpx;height:80rpx;background-image: linear-gradient(to bottom right,  #8a8a8a, #8a8a8a)" ></image>
+      <text class="bankuaiwenben" >求助</text>
+    </view>
+  </view>
+
+  <Tabs bindchange="changetitle" ></Tabs>
+  
+<!-- 说说显示所有 -->
+  <view class="A">
+    <!-- 下面为数据空白时的图片 -->
+    <view class="kong1" style="display:flex;justify-content:center" >
+      <image wx:if="{{kong==true && ss_xx.length==0}}" class="kong2" 
+      src="../../images/kong0.png" mode="widthFix" style="width:500rpx;margin-top:100rpx;height:auto" />
+    </view>
+    <!-- 下面为加载时的loading图片 -->
+    <view class="kong1" style="display:flex;justify-content:center" >
+      <image wx:if="{{kong==false && ss_xx.length==0}}" class="kong2" 
+      src="../../images/loading2.gif" mode="widthFix" style="width:100rpx;margin-top:170rpx;height:auto" />
+    </view>
+<!-- 加个倒序 --> 
+    <view class="daoxu" >
+      <view class="B" wx:for="{{ss_xx}}" wx:key="index" wx:for-item="item0" wx:for-index="index0"  bindtap="xiangqing" data-id="{{item0._id}}"  data-love="{{item0.love}}"  data-index="{{index0}}"   >
+        <!-- B1为头像 -->
+        <view class="B1"bindtap="xiangqing" data-id="{{item0._id}}" data-tp="{{item0.ss_xx.tp.length}}" data-nr="{{item0.ss_xx.nr}}"bindlongpress="guanlifengtiezi">
+          <image wx:if="{{item0.ss_xx.niming1!=true}}" 
+          class="photo" src="{{item0.ss_xx.userphoto}}" mode="widthFix" ></image>
+          <image wx:else class="photo" src="../../images/user/niming.png" mode="widthFix" ></image>
+        </view>
+        <!-- B2为其他内容 -->
+        <view class="B2">
+          <!-- 第一部分 -->
+          <view class="B21" >
+            <view class="name" 
+            style="font-size:100%;margin-top:5rpx;color:#5566A3;font-weight:600" >
+              {{item0.ss_xx.username}}
+            </view>
+            
+            <!-- 供应商--分享 -->
+            <image src="../images/分享.png" wx:if="{{item0.ss_xx.bankuai==0&&item0.ss_xx.zilei==0}}" 
+            style="width:48rpx;height:48rpx;margin-right:10rpx"/>
+
+            <!-- 供应商--售卖 -->
+            <image src="../images/购买.png" wx:if="{{item0.ss_xx.bankuai==0&&item0.ss_xx.zilei==1}}" 
+            style="width:48rpx;height:48rpx;margin-right:10rpx"/>
+
+            <!--  供应商--订单需求 -->
+            <image src="../images/采购订单.png" wx:if="{{item0.ss_xx.bankuai==0&&item0.ss_xx.zilei==2}}" 
+            style="width:48rpx;height:48rpx;margin-right:10rpx"/>
+            <!-- 收购商--经验分享 -->
+            <image src="../images/分享.png" wx:if="{{item0.ss_xx.bankuai==1&&item0.ss_xx.zilei==0}}" 
+            style="width:48rpx;height:48rpx;margin-right:10rpx"/>
+            <!--  供应商--订单需求 -->
+            <image src="../images/采购订单.png" wx:if="{{item0.ss_xx.bankuai==1&&item0.ss_xx.zilei==1}}" 
+            style="width:48rpx;height:48rpx;margin-right:10rpx"/>
+            <!-- 收购商-卖 -->
+            <image src="../images/购买.png" wx:if="{{item0.ss_xx.bankuai==1&&item0.ss_xx.zilei==2}}" 
+            style="width:48rpx;height:48rpx;margin-right:10rpx"/>
+            <!-- 聊天室--分享 -->
+            <image src="../images/分享.png" wx:if="{{item0.ss_xx.bankuai==2&&item0.ss_xx.zilei==0}}" 
+            style="width:48rpx;height:48rpx;margin-right:10rpx"/>
+            <!-- 求助--求助 -->
+            <image src="../images/帮助中心.png" wx:if="{{item0.ss_xx.bankuai==3&&item0.ss_xx.zilei==0}}" 
+            style="width:48rpx;height:48rpx;margin-right:10rpx"/>
+          </view>
+          <!-- 第二部分 -->
+          <view class="B22" >{{item0.ss_xx.nr}}</view>
+          <!-- 第三部分 -->
+          <view class="B23"  > 
+            <!-- 第一种 -->
+            <view wx:if="{{item0.ss_xx.tp.length==1}}" class="img1" style="width: 100%;">
+              <image hidden="{{!item0.ss_xx.tp2[0].loaded}}" src="{{item0.ss_xx.tp[0]}}"  style="width: 400rpx;height:auto;" mode="widthFix" bindload="imageOnLoad2" binderror="imageOnLoadError" data-index0="{{index0}}" data-index1="{{0}}" ></image>
+              <image lazy-load="true" src="{{'../../images/loading8.gif'}}" wx:if="{{!item0.ss_xx.tp2[0].loaded}}"  mode="widthFix" style="width: 400rpx;height:auto;" ></image>
+            </view>
+            <!-- 第二种 -->
+            <view wx:if="{{item0.ss_xx.tp.length>1}}" class="img2" style="width: 100%;">
+              <view class="xunhuan" wx:for="{{item0.ss_xx.tp}}" wx:key="index" 
+              style="width: 193rpx;height:193rpx" wx:for-item="item1" wx:for-index="index1" >
+                <!-- <image lazy-load="true" class="duozhang" src="{{item1}}" style="width: 185rpx;height:185rpx;margin-right:8rpx;margin-bottom:8rpx;" mode="aspectFill"/> -->
+                <image hidden="{{!item0.ss_xx.tp2[0].loaded}}" src="{{item1}}"  style="width: 185rpx;height:185rpx;margin-right:8rpx;margin-bottom:8rpx;" mode="aspectFill" bindload="imageOnLoad2" binderror="imageOnLoadError" data-index0="{{index0}}" data-index1="{{index1}}" ></image>
+                <image lazy-load="true" src="{{'../../images/loading8.gif'}}" wx:if="{{!item0.ss_xx.tp2[0].loaded}}"  style="width: 185rpx;height:185rpx;margin-right:8rpx;margin-bottom:8rpx;" mode="aspectFill" ></image>
+              </view>
+            </view>
+          </view>
+          <!-- 第四部分 -->
+          <view class="B24"  >
+            <!-- 下面显示时间 -->
+            <view class="time" style="font-size:83%;color:#9E9E9E;font-weight:lighter">{{tools.timeChn.when(item0.ss_xx.firsttime)}}</view>
+
+            <view class="dzpl" style="margin-right:20rpx;display:flex;" >
+              <!-- 下面显示点赞， -->
+              <view class="love" style="display:flex" catchtap="dianzan" data-index="{{index0}}" data-id="{{item0._id}}" >
+                <image lazy-load="true" wx:if="{{!item0.love}}" src="../../images/icon/zan1.png" style="width:40rpx;height:40rpx" />
+                <image lazy-load="true" wx:if="{{item0.love}}" src="../../images/icon/zan2.png" style="width:40rpx;height:40rpx" />
+                <view class="dianzannb" style="font-size:78%;color:#656565;font-weight:lighter;margin-right:10rpx;">{{item0.ss_xx.dianzannb}}</view>
+              </view>
+              <!-- 下面显示回复， -->
+              <image lazy-load="true" src="../../images/icon/pinglun.png" style="margin-left:10rpx;width:40rpx;height:40rpx" />
+              <view class="huifunb" style="font-size:78%;color:#656565;margin-left:10rpx;font-weight:lighter">{{item0.ss_xx.huifunb}}</view>
+
+              <!-- 下面显示浏览， -->
+              <image lazy-load="true" src="../../images/icon/look.png" style="margin-left:10rpx;width:40rpx;height:40rpx" />
+              <view class="dianzannb" style="font-size:78%;color:#656565;font-weight:lighter">{{item0.ss_xx.look}}</view>
+
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+</view>

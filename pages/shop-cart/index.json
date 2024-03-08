@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "Tabs":"../../linkk_luntan/miniprogram/zujian/Tabs/Tabs"
+  },
+  "navigationBarTitleText": "论坛",
+  "enablePullDownRefresh":true,
+  "backgroundColor":"#2A6C86",
+  "backgroundTextStyle":"dark"
+
+}

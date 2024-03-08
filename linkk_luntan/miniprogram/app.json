@@ -1,0 +1,26 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/tools/tools",
+    "pages/my/wd/wd",
+    "pages/message/xiaoxi/xiaoxi",
+    "pages/post/post",
+    "pages/plate1/plate1",
+    "pages/plate2/plate2",
+    "pages/plate3/plate3",
+    "pages/my/about/about",
+    "pages/tuijian/detail/detail",
+    "pages/my/set/set",
+    "pages/admin/admin"
+  ],
+  "window": {
+    "backgroundColor": "#000000",
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#E8989A",
+    "navigationBarTitleText": "论坛",
+    "navigationBarTextStyle": "white"
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2",
+  "lazyCodeLoading": "requiredComponents"
+}

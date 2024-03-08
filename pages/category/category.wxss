@@ -1,0 +1,63 @@
+page {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.main {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+}
+.goods-btn {
+  position: absolute;
+  right: 32rpx;
+  bottom: 32rpx;
+}
+.category-container {
+  width: 180rpx;
+  height: 100%;
+}
+.goods-container {
+  flex: 1;
+  height: 100%;
+}
+
+.medium-category {
+  margin: 32rpx 0;
+}
+.medium-category .line {
+  width:60rpx;
+}
+.medium-category .txt {
+  color: #333;
+}
+.small-category-box {
+  width: 570rpx;
+  display: flex;
+  flex-wrap: wrap;
+}
+.small-category {
+  width: 147rpx;
+  margin-top: 32rpx;
+  margin-left: 32rpx;
+}
+.small-category image {
+  width: 147rpx;
+  height: 147rpx;
+}
+.small-category view {
+  text-align: center;
+  font-size: 24rpx;
+  color: #666;
+}
+
+.llargada{
+  width: 590rpx!important;
+}
+.sidebar-l {
+  width: 190rpx !important;
+}
+.adPosition {
+  width: 100%;
+}

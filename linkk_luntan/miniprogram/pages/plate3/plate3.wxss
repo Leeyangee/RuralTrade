@@ -1,0 +1,8 @@
+/* miniprogram/pages/plate3/plate3.wxss */
+page{background-color: #FFFFFF;}
+.xunhuan{
+    border-bottom: 0.1px solid #D5D5D5;
+}
+.pl{
+    width:80rpx;height:80rpx;border-radius: 50%;overflow: hidden;
+}

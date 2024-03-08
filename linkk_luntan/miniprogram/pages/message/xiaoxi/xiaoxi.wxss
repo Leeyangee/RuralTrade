@@ -1,0 +1,4 @@
+page{background-color: #EDEDED;}
+.wbnr{
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;font-size:78%;color:#656565
+}

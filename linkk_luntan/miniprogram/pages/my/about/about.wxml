@@ -1,0 +1,65 @@
+
+  <view class="shang" 
+  style="display:flex;flex-direction:column;justify-content:space-around;align-items:center;height:260rpx;"  >
+    <image class="tubiao" src="{{about.icon}}" style="width:150rpx;height:150rpx;border-radius:50%;overflow: hidden;" ></image>
+    <view class="wb1" style="color:#FFFFFF;font-size:120%;margin-top:10rpx" >{{about.name}}</view>
+  </view>
+
+  <view class="jieshao" style="margin-top:100rpx" >
+    <view class="yitiao"  bindtap="fuzhi" data-item="{{about.weixin}}" >
+      <view class="zuo" >
+        <view class="neirong" style="color:#ffffff" >官方微信</view>
+        <view class="neirong" >{{about.weixin}}</view>
+      </view>
+      <view class="you" >
+        <view class="neirong" >点击复制</view>
+        <image class="youbian" src="/images/icon/you.png" ></image>
+      </view>
+    </view>
+
+    <view class="yitiao"  bindtap="fuzhi" data-item="{{about.QQ1}}" >
+      <view class="zuo" >
+        <view class="neirong" style="color:#ffffff" >浙农交流群</view>
+        <view class="neirong" >{{about.QQ1}}</view>
+      </view>
+      <view class="you" >
+        <view class="neirong" >点击复制</view>
+        <image class="youbian" src="/images/icon/you.png" ></image>
+      </view>
+    </view>
+
+    <view class="yitiao"  bindtap="fuzhi" data-item="{{about.QQ2}}" >
+      <view class="zuo" >
+        <view class="neirong" style="color:#ffffff" >开发QQ</view>
+        <view class="neirong" >{{about.QQ2}}</view>
+      </view>
+      <view class="you" >
+        <view class="neirong" >点击复制</view>
+        <image class="youbian" src="/images/icon/you.png" ></image>
+      </view>
+    </view>
+
+    <view class="yitiao"  bindtap="fuzhi" data-item="{{ID}}" >
+      <view class="zuo" >
+        <view class="neirong" style="color:#ffffff" >我的ID</view>
+        <view class="neirong" >{{ID}}</view>
+      </view>
+      <view class="you" >
+        <view class="neirong" >点击复制</view>
+        <image class="youbian" src="/images/icon/you.png" ></image>
+      </view>
+    </view>
+
+    <view class="yitiao2" style="display:flex;justify-content:flex-end;margin:80rpx"  >
+      <button open-type="contact" style="background-color: #2488da;width: 250rpx;" >联线客服</button>
+    </view>
+    
+  </view>
+
+  <view class="tishi" style="font-size:75%;color:rgb(80, 80, 80);padding: 3rpx 35rpx 0rpx 35rpx;" 
+  wx:for="{{about.shuoming}}"
+  wx:for-item="item" wx:for-index="index" 
+  wx:key="index"
+   >{{item}}</view>
+
+
